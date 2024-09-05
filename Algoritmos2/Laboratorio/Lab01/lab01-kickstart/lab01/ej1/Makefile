@@ -14,4 +14,4 @@ all: reader
 # Reglas
 
 compila:
-    $(CC) $(CFLAGS) -o reader main.c
+	$(CC) $(CFLAGS) -o reader main.c
