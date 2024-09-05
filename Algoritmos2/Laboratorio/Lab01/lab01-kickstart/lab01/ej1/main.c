@@ -72,11 +72,6 @@ unsigned int array_from_file(int array[], unsigned int max_size, const char *fil
     
 
     FILE *file = fopen(filepath, "r");
-
-    if (file == NULL){
-        printf("Error no se pudo abrir el archivo\n");
-	return EXIT_FAILURE;
-    } else {
 	/*El fscanf, va leyendo el arreglo en este caso solo nos interesa imprimir
 	 * el contenido del arreglo nomas*/
         unsigned int largodelarreglo;
@@ -89,7 +84,6 @@ unsigned int array_from_file(int array[], unsigned int max_size, const char *fil
 	}
         
         fclose(file); /*Se cierra el archivo*/
-    }
 
     return largodelarreglo;
 }
