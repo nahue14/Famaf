@@ -69,10 +69,36 @@ char *parse_filepath(int argc, char *argv[]){
 
 unsigned int array_from_file(int array[], unsigned int max_size, const char *filepath){
     /*usar man pages y fopen, fscanf, fclose*/
+    
+    FILE *file = fopen(filepath, "r");
+
+    if (file == NULL){
+        printf("Error no se pudo abrir el archivo\n");
+	return EXIT_FAILURE;
+    } else {
+	/*El fscanf, va leyendo de a renglones a medida que lo voy llamando en este primer
+	 * caso en el primer renglon esta el largo del arreglo*/
+        int largodelarreglo;
+        fscanf(file, "%d", &largodelarreglo); /*Lee la cantidad de elementos del arreglo*/
+
+        /*En este segundo caso, fscanf va a leer el contenido del arreglo*/
+
+        for(int i = 0; i < largodelarreglo; i++){
+            fscanf(file, "%d", &array[i]); /*Lee cada elemento del arreglo y lo guarda en
+	    las posiciones del arreglo*/
+	}
+        
+        fclose(file); /*Se cierra el archivo*/
+    }
+
+    return array;
 }
 
 void array_dump(int a[], unsigned int length){
-    //your code here!!!
+    
+    for(int i = 0; i < length ; i++){
+        printf("%d ",array[i]);
+    }
 }
 
 
