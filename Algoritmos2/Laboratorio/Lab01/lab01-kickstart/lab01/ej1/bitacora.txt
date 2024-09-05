@@ -59,3 +59,21 @@ main.c:97:21: error: unused parameter ‘a’ [-Werror=unused-parameter]
 cc1: all warnings being treated as errors
 make: *** [Makefile:17: compila] Error 1
 
+
+04-09-2024 22:46:57 myn@myn:~/Documentos/GitHub/Famaf/Algoritmos2/Laboratorio/Lab01/lab01-kickstart/lab01/ej1$ make compila 
+gcc  -Wall -Werror -Wextra -pedantic -std=c99 -g -o reader main.c
+main.c: In function ‘array_from_file’:
+main.c:94:12: error: returning ‘int *’ from a function with return type ‘unsigned int’ makes integer from pointer without a cast [-Werror=int-conversion]
+   94 |     return array;
+      |            ^~~~~
+main.c: In function ‘array_dump’:
+main.c:100:18: error: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘int *’ [-Werror=format=]
+  100 |         printf("%d ",&a[i]);
+      |                 ~^   ~~~~~
+      |                  |   |
+      |                  int int *
+      |                 %ls
+cc1: all warnings being treated as errors
+make: *** [Makefile:17: compila] Error 1
+
+
