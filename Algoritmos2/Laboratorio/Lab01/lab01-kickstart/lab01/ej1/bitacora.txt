@@ -1,0 +1,22 @@
+04-09-2024 22:37:07 myn@myn:~/Documentos/GitHub/Famaf/Algoritmos2/Laboratorio/Lab01/lab01-kickstart/lab01/ej1$ make compila 
+gcc  -Wall -Werror -Wextra -pedantic -std=c99 -g -o reader main.c
+main.c: In function ‘array_from_file’:
+main.c:94:12: error: returning ‘int *’ from a function with return type ‘unsigned int’ makes integer from pointer without a cast [-Werror=int-conversion]
+   94 |     return array;
+      |            ^~~~~
+main.c:70:56: error: unused parameter ‘max_size’ [-Werror=unused-parameter]
+   70 | unsigned int array_from_file(int array[], unsigned int max_size, const char *filepath){
+      |                                           ~~~~~~~~~~~~~^~~~~~~~
+main.c: In function ‘array_dump’:
+main.c:99:22: error: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Werror=sign-compare]
+   99 |     for(int i = 0; i < length ; i++){
+      |                      ^
+main.c:100:22: error: ‘array’ undeclared (first use in this function)
+  100 |         printf("%d ",array[i]);
+      |                      ^~~~~
+main.c:100:22: note: each undeclared identifier is reported only once for each function it appears in
+main.c:97:21: error: unused parameter ‘a’ [-Werror=unused-parameter]
+   97 | void array_dump(int a[], unsigned int length){
+      |                 ~~~~^~~
+cc1: all warnings being treated as errors
+

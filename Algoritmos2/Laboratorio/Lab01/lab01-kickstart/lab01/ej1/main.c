@@ -83,7 +83,7 @@ unsigned int array_from_file(int array[], unsigned int max_size, const char *fil
 
         /*En este segundo caso, fscanf va a leer el contenido del arreglo*/
 
-        for(int i = 0; i < largodelarreglo; i++){
+        for(int i = 0; i < max_size; i++){
             fscanf(file, "%d", &array[i]); /*Lee cada elemento del arreglo y lo guarda en
 	    las posiciones del arreglo*/
 	}
@@ -96,8 +96,8 @@ unsigned int array_from_file(int array[], unsigned int max_size, const char *fil
 
 void array_dump(int a[], unsigned int length){
     
-    for(int i = 0; i < length ; i++){
-        printf("%d ",array[i]);
+    for(unsigned int i = 0; i < length ; i++){
+        printf("%d ",&array[i]);
     }
 }
 
