@@ -119,8 +119,10 @@ int main(int argc, char *argv[]){
     
     /* dumping the array */
     /* volcando el arreglo */
-    array_dump(array, length);
     
+    array_dump(array, length);
+    printf("\n");
+
     return EXIT_SUCCESS;
 }
 
