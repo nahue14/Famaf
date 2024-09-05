@@ -1,5 +1,6 @@
 /* First, the standard lib includes, alphabetically ordered */
 /* Primero, incluimos las librerias estandard ordenadas alfabéticamente */
+
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -13,7 +14,7 @@
 void print_help(char *program_name){
 
     /* Print the usage help of this program. */
-    /* Imprime la ayuda para usar este programa. */
+    /* Imprime un mensaje de ayuda sobre como usar el programa */
 
     printf("Usage: %s <input file path>\n\n"
            "Loads an array given in a file in disk and prints it on the screen."
@@ -32,18 +33,30 @@ void print_help(char *program_name){
 
 char *parse_filepath(int argc, char *argv[]){
     
-    /* Parse the filepath given by command line argument. */
-    /* Imprime la ayuda para usar este programa. */
+    /*parse_filepath: esta funcion verifica si el programa fue llamado con la 
+     * cantidad correcta de argumentos y extrae el archivo de entrada.
+     *
+     *  argc = Indica la cantidad de argumentos pasados al programa. El primer
+     *  argumento es siempre el nombre del programa.
+     *
+     * *argv[] = Es un arreglo de punteros a char, donde cada posicion contiene
+     * un argumento como cadena de caracteres. Ejemplo: argv[0] es el nombre del 
+     * programa y argv[1] seria la ruta al archivo de entrada*/
 
+    /*Se inicializa una variable de puntero a char en NULL osea que no apunta
+     * a nada*/
     char *result = NULL;
-
-    // Program takes exactly two arguments
-    // El programa toma exactamente dos argumentos
     
-    // (the program's name itself and the input-filepath)
-    // (el nombre del programa en sí y la ruta del archivo de entrada)
+    /*Esta variable verifica que en la linea de comandos haya solo dos cosas
+     * el ./nombredelprograma y la ruta del archivo que voy a poner en la entrada*/
     bool valid_args_count = (argc == 2);
 
+    /*Se pone un if para, en el caso de que si se llama al programa sin la ruta
+     * del archivo me llame a la funcion que me imprime la ayuda para saber
+     * como usar el programa y corta el programa en ese momento, en caso contrario
+     * no entra al if y el programa sigue guardando en la variable puntero a char 
+     * result la ruta del archivo, esto se hace para que la ruta del archivo no se 
+     * pierda a medida que el programa se va ejecutando*/
     if (!valid_args_count){
         print_help(argv[0]);
         exit(EXIT_FAILURE);
@@ -55,7 +68,7 @@ char *parse_filepath(int argc, char *argv[]){
 }
 
 unsigned int array_from_file(int array[], unsigned int max_size, const char *filepath){
-    //your code here!!!
+    /*usar man pages y fopen, fscanf, fclose*/
 }
 
 void array_dump(int a[], unsigned int length){
@@ -65,28 +78,22 @@ void array_dump(int a[], unsigned int length){
 
 int main(int argc, char *argv[]){
     
-    /*argc: es la cantidad de argumentos que va a tener el programa, el argumento 0 es 
-     * el nombre del programa ./"nombre del programa" lo que ponga despues del nombre del
-     * programa van a ser los argumentos siguientes
-     * argv se va a guardar la cadena de strings en la posicion correspondiente*/
+    /*Yo al ponerle argumentos al main, estoy diciendo que al programa hay que 
+     * meterle si o si dos entradas, el nombre del programa y la ruta del archivo*/
 
-    char *filepath = NULL; /* Se inicializa una variable puntero nula osea no apunta
-    a ninguna direccion de memoria */
-
-    /* parse the filepath given in command line arguments */
-    /* analiza la ruta del archivo proporcionada en los argumentos de la línea de comando */
-
-    /* Guarda en una variable de tipo puntero, los argumentos sin el nombre del programa */
+    char *filepath = NULL; /* Se inicializa una variable puntero a char nula osea no 
+			   apunta a ninguna direccion de memoria */
+    
+    /* Guarda en una variable de tipo puntero, la ruta del archivo de entrada */
     filepath = parse_filepath(argc, argv);
     
-    /* create an array of MAX_SIZE elements */
-    /* crea un arreglo de tamano MAX_SIZE */
+    /* Crea un arreglo de tamano MAX_SIZE, osea voy a tener un arreglo vacio de tamano
+     * MAX_SIZE*/
     int array[MAX_SIZE];
     
-    /* parse the file to fill the array and obtain the actual length */
-    /* analiza el archivo para llenar el arreglo y obtener la longitud real */
-    
-    /* una variable de tipo int no signada osea que solo va a tener numeros positivos */
+    /* Se crea una variable de tipo int no signada osea que solo va a tener numeros 
+     * positivos, donde se va a llamar a la funcion array_from_file, que come tres cosas
+     * el arreglo vacio, el tamano del arreglo vacio y la direccion del archivo */
 
     unsigned int length = array_from_file(array, MAX_SIZE, filepath);
     
