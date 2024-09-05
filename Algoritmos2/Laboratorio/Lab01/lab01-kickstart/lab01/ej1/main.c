@@ -70,6 +70,8 @@ char *parse_filepath(int argc, char *argv[]){
 unsigned int array_from_file(int array[], unsigned int max_size, const char *filepath){
     /*usar man pages y fopen, fscanf, fclose*/
     
+    unsigned int vararray = array;
+
     FILE *file = fopen(filepath, "r");
 
     if (file == NULL){
@@ -90,8 +92,9 @@ unsigned int array_from_file(int array[], unsigned int max_size, const char *fil
         
         fclose(file); /*Se cierra el archivo*/
     }
-
-    return array;
+    
+    vararray = array;
+    return vararray;
 }
 
 void array_dump(int a[], unsigned int length){
