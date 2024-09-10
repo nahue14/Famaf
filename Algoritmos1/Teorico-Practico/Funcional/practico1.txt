@@ -1,0 +1,17 @@
+1a) <∀i : 0 ≤ i < #xs : rojo(xs.i)> => "Todos los elementos de la lista son rojos"
+
+1b) <∃i : 0 ≤ i < #xs : rombo(xs.i)> => "Algunos elementos de la lista son rombos"
+
+1c) <∃i : 0 ≤ i < #xs : <∃j : 0 ≤ j < #xs : xs.i = xs.j>> => "Algunos elementos de la lista son iguales"
+
+1d) <∃i : 0 ≤ i < #xs : <∃j : i ≤ j < #xs : xs.i = xs.j>> => "Algun elemento de la lista es igual al anterior"
+
+1e)  <⅀i : 0 ≤ i < #xs : tam.(xs.i)> => "La suma de los elementos de la lista es igual al tamano de la lista"
+
+Observacion: A ≤ B < C es igual a (A ≤ B) ⋀ (B < C)
+
+La diferencia entre el 1c y el 1d es muy sutil el elemento j es mayor o igual a i
+
+2a) "Todas las figuras de xs son amarillas" 
+
+    <∀i : 0 ≤ i < #xs : amarillas(xs.i)>
